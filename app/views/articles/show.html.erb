@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"> <%=link_to "Accueil",articles_path, class: "btn btn-dark" %></a>
+ <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= content_tag :div, "Déconnexion", :class => "btn btn-dark" %>
+        <% end %>
+    </div>
+    </div>
+</nav>
+
+
+<div class="container">
+  <div class="shadow p-3 m-5 bg-white rounded text-center">
+ <h1> <%= @article.title %> </h1>
+
+<p><%= "*" * @article.stars %></p>
+
+<p><b><%= @article.created_at.strftime("%D") %></b></p>
+
+<p> <%= @article.content %></p>
+<%= link_to "Modifier", edit_article_path, class: "btn btn-primary"  %>
+<%= link_to "Supprimer", article_path(@article.id), method: :delete, class: "btn btn-danger" %>
+  </div>
+
+</div>
+
+

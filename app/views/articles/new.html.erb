@@ -1,0 +1,25 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"> <%=link_to "Accueil",articles_path, class: "btn btn-dark" %></a>
+ <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= content_tag :div, "Déconnexion", :class => "btn btn-dark" %>
+        <% end %>
+    </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="shadow p-3 m-5 bg-white rounded ">
+
+  <h1>New articles</h1>
+<%= simple_form_for @article do |f| %>
+<%= f.input :title %>
+<%= f.input :stars, collection: 0..5 %>
+<%= f.input :content %>
+<%= f.button :submit %>
+
+<% end %>
+</div>
+</div>
+

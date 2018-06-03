@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse navbar-fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand"> <%=link_to "Accueil",articles_path, class: "btn btn-dark" %></a>
+ <%= link_to destroy_user_session_path, method: :delete do %>
+          <%= content_tag :div, "Déconnexion", :class => "btn btn-dark" %>
+        <% end %>
+    </div>
+    </div>
+</nav>
+
+hello <%= current_user %>
+
+<div class="text-center">
+<h1>Mes avis</h1>
+<%= link_to "Nouveau article", new_article_path, class: "btn btn-success mb-3" %>
+</div>
+
+<div class="container">
+  <div class="row">
+
+
+
+      <% @articles.each do |article| %>
+      <div class="col-4 p-3 m-4 shadow bg-white rounded">
+
+
+       <div>
+
+        <h2> <%= article.title %> </h2>
+        <p><%= "*" * article.stars %></p>
+
+        </div>
+
+      <div>
+        <%= article.created_at.strftime("%D") %>
+        <br>
+        <%= link_to "Plus d'informations", article_path(article.id), class:"btn btn-primary" %>
+      </div>
+
+      </div>
+
+    <% end %>
+    </div>
+  </div>
+
+
